@@ -4727,11 +4727,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less\\2GoFood4Less.Server\\2GoFood4Less.Server.csproj",
+      "projectUniqueName": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\2GoFood4Less.Server.csproj",
       "projectName": "2GoFood4Less.Server",
-      "projectPath": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less\\2GoFood4Less.Server\\2GoFood4Less.Server.csproj",
+      "projectPath": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\2GoFood4Less.Server.csproj",
       "packagesPath": "C:\\Users\\todmi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less\\2GoFood4Less.Server\\obj\\",
+      "outputPath": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Users\\XPS 17\\Desktop\\vs\\vs_test_shared\\NuGetPackages"

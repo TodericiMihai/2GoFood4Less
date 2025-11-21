@@ -10,7 +10,7 @@ using System.Reflection.Emit;
 
 namespace _2GoFood4Less.Server.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<User>
+    public class ApplicationDbContext : IdentityDbContext<Client>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
        
@@ -38,11 +38,18 @@ namespace _2GoFood4Less.Server.Data
             
             base.OnModelCreating(builder);
 
-            // ---------- User → Cart 1:1 ----------
-            builder.Entity<User>()
+            // ---------- Client → Cart 1:1 ----------
+            builder.Entity<Client>()
                 .HasOne(c => c.Cart)
-                .WithOne()
-                .HasForeignKey<Cart>("UserId")
+                .WithOne(c => c.Client)
+                .HasForeignKey<Cart>(c => c.ClientId)
+                .IsRequired(false);
+
+            // ---------- Client -> Order 1:many ----------
+            builder.Entity<Client>()
+                .HasMany(o => o.Orders)
+                .WithOne(c => c.Client)
+                .HasForeignKey(c => c.ClientId)
                 .IsRequired(false);
 
             // ---------- Cart -> CartItem 1:many ----------
@@ -52,55 +59,68 @@ namespace _2GoFood4Less.Server.Data
                 .HasForeignKey(c => c.CartId)
                 .IsRequired();
 
-            // ---------- CartItem -> MenuItem many:1 ----------
+            // ---------- CartItem -> MenuItem many:1 ---------- 
             builder.Entity<CartItem>()
                 .HasOne(m => m.MenuItem)
                 .WithMany()
                 .HasForeignKey(c => c.MenuItemId)
-                .IsRequired();
-
-            // ---------- Cart → Payment 1:1 ----------
-            builder.Entity<Cart>()
-                .HasOne(p => p.Payment)
-                .WithOne()
-                .HasForeignKey<Payment>("Payment")
-                .IsRequired(false);
+                .IsRequired();  
 
             // ---------- Restaurant → Menu 1:many----------
             builder.Entity<Restaurant>()
                 .HasMany(m => m.Menus)
                 .WithOne(r => r.Restaurant)
-                .HasForeignKey(m => m.RestaurantId)
-                .IsRequired(false);
+                .HasForeignKey(r => r.RestaurantId)
+                .IsRequired();
 
             // ---------- Menu → MenuItem 1:many ----------
             builder.Entity<Menu>()
                 .HasMany(m => m.Items)
-                .WithOne(mi => mi.Menu)
-                .HasForeignKey(mi => mi.MenuId)
+                .WithOne(i => i.Menu)
+                .HasForeignKey(i => i.MenuId)
                 .IsRequired(false);
 
             // ---------- MenuItem → ItemPhoto 1:1 ----------
             builder.Entity<MenuItem>()
                 .HasOne(p => p.Photo)
-                .WithOne()
-                .HasForeignKey<MenuItemPhoto>("MenuItemId")
+                .WithOne(m => m.MenuItem)
+                .HasForeignKey<MenuItemPhoto>(m => m.MenuItemId)
                 .IsRequired();
 
             // ---------- Restaurant → Order 1:many ----------
             builder.Entity<Restaurant>()
                 .HasMany(o => o.Orders)
-                .WithOne()
-                .HasForeignKey("RestaurantId")
-                .IsRequired();
+                .WithOne(r => r.Restaurant)
+                .HasForeignKey(r => r.RestaurantId)
+                .IsRequired(false);
 
-            // ---------- Oder -> OrderItem 1:many ----------
+            // ---------- Order -> OrderItem 1:many ----------
             builder.Entity<Order>()
                 .HasMany(i => i.OrderItems)
                 .WithOne(o => o.Order)
                 .HasForeignKey(o => o.OrderId)
                 .IsRequired();
 
+            // ---------- OrderItem -> MenuItem many:1 ----------
+            builder.Entity<OrderItem>()
+                .HasOne(m => m.MenuItem)
+                .WithMany()
+                .HasForeignKey(c => c.MenuItemId)
+                .IsRequired();
+
+            // ---------- Order → Payment 1:1 ----------
+            builder.Entity<Order>()
+                .HasOne(p => p.Payment)
+                .WithOne(o => o.Order)
+                .HasForeignKey<Payment>(p => p.OrderId)
+                .IsRequired();
+
+            // ---------- Restaurant → RestaurantPhoto 1:1 ----------
+            builder.Entity<Restaurant>()
+                .HasOne(p => p.Photo)
+                .WithOne(r => r.Restaurant)
+                .HasForeignKey<RestaurantPhoto>(r => r.RestaurantId)
+                .IsRequired();
 
         }
     }

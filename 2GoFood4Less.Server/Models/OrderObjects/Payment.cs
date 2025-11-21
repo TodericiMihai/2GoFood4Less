@@ -1,6 +1,23 @@
-﻿namespace _2GoFood4Less.Server.Models.OrderObjects
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using _2GoFood4Less.Server.Models.Utils.Enums;
+namespace _2GoFood4Less.Server.Models.OrderObjects
 {
     public class Payment
     {
+        [Key]
+        public int Id { get; set; }
+
+        [Required]
+        public PaymentMethod PaymentMethod { get; set; }
+
+        [Required]
+        public int Value { get; set; }
+
+        public string OrderId { get; set; }
+
+        [ForeignKey("OrderId")]
+        public Order Order { get; set; }
+
     }
 }

@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using _2GoFood4Less.Server.Models.OrderObjects;
+using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace _2GoFood4Less.Server.Models.User.UserObjects
 {
-        public class User : IdentityUser
+        public class Client : IdentityUser
         {
 
             [MaxLength(50)]
@@ -20,11 +21,11 @@ namespace _2GoFood4Less.Server.Models.User.UserObjects
             public DateTime LastLogin { get; set; } = DateTime.Now;
 
             public bool IsAdmin { get; set; } = false;
-            
-            public string CartId { get; set; }
-
-            [ForeignKey("CartId")]
+    
             public Cart Cart { get; set; }
+
+            public ICollection<Order> Orders { get; set; } = new List<Order>();
+
         }
     
 }

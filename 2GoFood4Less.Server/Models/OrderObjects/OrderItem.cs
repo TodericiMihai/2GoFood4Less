@@ -24,5 +24,6 @@ namespace _2GoFood4Less.Server.Models.OrderObjects
         [ForeignKey("OrderId")]
         public Order Order { get; set; }
 
+
     }
 }

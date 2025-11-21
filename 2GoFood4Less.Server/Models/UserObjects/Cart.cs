@@ -12,12 +12,12 @@ namespace _2GoFood4Less.Server.Models.User.UserObjects
 
         public ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
 
-        public string UserId { get; set; }
+        public string ClientId { get; set; }
 
-        [ForeignKey("UserId")]
-        public User User { get; set; }
+        [ForeignKey("ClientId")]
+        public Client Client { get; set; }
 
-        public Payment Payment { get; set; }
+        public int Value { get; set; }
 
         public string UserSpecificRequests { get; set; }
 

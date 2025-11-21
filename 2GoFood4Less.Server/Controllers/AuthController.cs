@@ -10,20 +10,20 @@ namespace _2GoFood4Less.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthController(SignInManager<User> sm, UserManager<User> um) : ControllerBase
+    public class AuthController(SignInManager<Client> sm, UserManager<Client> um) : ControllerBase
     {
-        private readonly SignInManager<User> signInManager = sm;
-        private readonly UserManager<User> userManager = um;
+        private readonly SignInManager<Client> signInManager = sm;
+        private readonly UserManager<Client> userManager = um;
 
         [HttpPost("register")]
-        public async Task<ActionResult> RegisterUser(User user)
+        public async Task<ActionResult> RegisterUser(Client user)
         {
 
             IdentityResult result = new();
 
             try
             {
-                User user_ = new User()
+                Client user_ = new Client()
                 {
                     Name = user.Name,
                     Email = user.Email,
@@ -51,7 +51,7 @@ namespace _2GoFood4Less.Server.Controllers
 
             try
             {
-                User user_ = await userManager.FindByEmailAsync(login.Email);
+                Client user_ = await userManager.FindByEmailAsync(login.Email);
                 if (user_ != null)
                 {
                     login.Username = user_.UserName;
@@ -112,7 +112,7 @@ namespace _2GoFood4Less.Server.Controllers
         [HttpGet("home/{email}"), Authorize]
         public async Task<ActionResult> HomePage(string email)
         {
-            User userInfo = await userManager.FindByEmailAsync(email);
+            Client userInfo = await userManager.FindByEmailAsync(email);
             if (userInfo == null)
             {
                 return BadRequest(new { message = "Something went wrong, please try again." });
@@ -124,7 +124,7 @@ namespace _2GoFood4Less.Server.Controllers
         [HttpGet("xhtlekd")]
         public async Task<ActionResult> CheckUser()
         {
-            User currentuser = new();
+            Client currentuser = new();
 
             try
             {

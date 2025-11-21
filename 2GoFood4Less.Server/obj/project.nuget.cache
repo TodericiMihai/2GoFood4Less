@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WT1PHK2V9Wg=",
+  "dgSpecHash": "FM2vo2lm6qs=",
   "success": true,
-  "projectFilePath": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less\\2GoFood4Less.Server\\2GoFood4Less.Server.csproj",
+  "projectFilePath": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\2GoFood4Less.Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\todmi\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\todmi\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

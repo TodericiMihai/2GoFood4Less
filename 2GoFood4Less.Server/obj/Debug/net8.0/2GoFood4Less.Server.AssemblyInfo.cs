@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("2GoFood4Less.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cea700cbf9dd2774d0bcdf961c255f544d4514a3")]
 [assembly: System.Reflection.AssemblyProductAttribute("2GoFood4Less.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("2GoFood4Less.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

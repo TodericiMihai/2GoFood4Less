@@ -19,9 +19,9 @@ namespace _2GoFood4Less.Server
                 options.UseNpgsql(builder.Configuration.GetConnectionString("Default"));
             });
 
-            builder.Services.AddIdentityApiEndpoints<User>().AddEntityFrameworkStores<ApplicationDbContext>();
+            builder.Services.AddIdentityApiEndpoints<Client>().AddEntityFrameworkStores<ApplicationDbContext>();
 
-            builder.Services.AddIdentityCore<User>(options => {
+            builder.Services.AddIdentityCore<Client>(options => {
                 options.SignIn.RequireConfirmedAccount = true;
                 options.Password.RequireDigit = true;
                 options.Password.RequireNonAlphanumeric = true;
@@ -52,7 +52,7 @@ namespace _2GoFood4Less.Server
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-            app.MapIdentityApi<User>();
+            app.MapIdentityApi<Client>();
 
             app.MapControllers();
 
