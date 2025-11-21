@@ -1,0 +1,6 @@
+@_2GoFood4Less.Server_HostAddress = http://localhost:5091
+
+GET {{_2GoFood4Less.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

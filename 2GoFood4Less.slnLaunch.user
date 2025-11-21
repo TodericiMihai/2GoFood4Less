@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "2gofood4less.client\\2gofood4less.client.esproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "2GoFood4Less.Server\\2GoFood4Less.Server.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|c:\\users\\todmi\\desktop\\2gofood4less\\2gofood4less\\2gofood4less.server\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|solutionrelative:2gofood4less.server\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less\\2GoFood4Less.Server\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "2GoFood4Less.Server\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less\\2GoFood4Less.Server\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "2GoFood4Less.Server\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAwwGQAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T20:58:34.17Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

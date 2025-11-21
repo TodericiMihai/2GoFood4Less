@@ -1,0 +1,10 @@
+{
+"SpaProxyServer": {
+"ServerUrl": "https://localhost:64305",
+"RedirectUrl": "",
+"LaunchCommand": "npm run dev",
+"WorkingDirectory": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less\\2GoFood4Less.Server\\..\\2gofood4less.client",
+"MaxTimeoutInSeconds": "120",
+"KeepRunning": "false"
+}
+}
