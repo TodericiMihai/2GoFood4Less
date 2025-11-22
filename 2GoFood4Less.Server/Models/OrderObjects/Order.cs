@@ -27,6 +27,6 @@ namespace _2GoFood4Less.Server.Models.OrderObjects
 
         public string UserSpecificRequests { get; set; }
 
-        public Boolean IsActive { get; set; }
+        public OrderStatus Status { get; set; }
     }
 }

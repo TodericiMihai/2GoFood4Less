@@ -7,7 +7,7 @@ namespace _2GoFood4Less.Server.Models.OrderObjects
     public class OrderItem
     {
         [Key]
-        public string id { get; set; }
+        public string Id { get; set; }
 
         [Required]
         public string MenuItemId { get; set; }  

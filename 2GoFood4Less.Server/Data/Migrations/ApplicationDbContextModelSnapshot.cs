@@ -286,6 +286,9 @@ namespace _2GoFood4Less.Server.Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int>("Price")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
 
                     b.HasIndex("MenuId");
@@ -565,7 +568,8 @@ namespace _2GoFood4Less.Server.Data.Migrations
                 {
                     b.HasOne("_2GoFood4Less.Server.Models.User.UserObjects.Client", "Client")
                         .WithMany("Orders")
-                        .HasForeignKey("ClientId");
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("_2GoFood4Less.Server.Models.RestaurantObjects.Restaurant", "Restaurant")
                         .WithMany("Orders")
@@ -621,7 +625,8 @@ namespace _2GoFood4Less.Server.Data.Migrations
                 {
                     b.HasOne("_2GoFood4Less.Server.Models.RestaurantObjects.Menu", "Menu")
                         .WithMany("Items")
-                        .HasForeignKey("MenuId");
+                        .HasForeignKey("MenuId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Menu");
                 });
@@ -630,7 +635,8 @@ namespace _2GoFood4Less.Server.Data.Migrations
                 {
                     b.HasOne("_2GoFood4Less.Server.Models.User.UserObjects.Client", "Client")
                         .WithOne("Cart")
-                        .HasForeignKey("_2GoFood4Less.Server.Models.User.UserObjects.Cart", "ClientId");
+                        .HasForeignKey("_2GoFood4Less.Server.Models.User.UserObjects.Cart", "ClientId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Client");
                 });

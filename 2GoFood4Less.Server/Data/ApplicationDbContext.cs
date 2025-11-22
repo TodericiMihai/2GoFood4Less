@@ -43,21 +43,24 @@ namespace _2GoFood4Less.Server.Data
                 .HasOne(c => c.Cart)
                 .WithOne(c => c.Client)
                 .HasForeignKey<Cart>(c => c.ClientId)
-                .IsRequired(false);
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.Cascade); 
 
             // ---------- Client -> Order 1:many ----------
             builder.Entity<Client>()
                 .HasMany(o => o.Orders)
                 .WithOne(c => c.Client)
                 .HasForeignKey(c => c.ClientId)
-                .IsRequired(false);
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.Cascade);
 
             // ---------- Cart -> CartItem 1:many ----------
             builder.Entity<Cart>()
                 .HasMany(i => i.CartItems)
                 .WithOne(c => c.Cart)
                 .HasForeignKey(c => c.CartId)
-                .IsRequired();
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
 
             // ---------- CartItem -> MenuItem many:1 ---------- 
             builder.Entity<CartItem>()
@@ -71,21 +74,24 @@ namespace _2GoFood4Less.Server.Data
                 .HasMany(m => m.Menus)
                 .WithOne(r => r.Restaurant)
                 .HasForeignKey(r => r.RestaurantId)
-                .IsRequired();
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
 
             // ---------- Menu → MenuItem 1:many ----------
             builder.Entity<Menu>()
                 .HasMany(m => m.Items)
                 .WithOne(i => i.Menu)
                 .HasForeignKey(i => i.MenuId)
-                .IsRequired(false);
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.Cascade);
 
             // ---------- MenuItem → ItemPhoto 1:1 ----------
             builder.Entity<MenuItem>()
                 .HasOne(p => p.Photo)
                 .WithOne(m => m.MenuItem)
                 .HasForeignKey<MenuItemPhoto>(m => m.MenuItemId)
-                .IsRequired();
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
 
             // ---------- Restaurant → Order 1:many ----------
             builder.Entity<Restaurant>()
@@ -120,7 +126,8 @@ namespace _2GoFood4Less.Server.Data
                 .HasOne(p => p.Photo)
                 .WithOne(r => r.Restaurant)
                 .HasForeignKey<RestaurantPhoto>(r => r.RestaurantId)
-                .IsRequired();
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
 
         }
     }

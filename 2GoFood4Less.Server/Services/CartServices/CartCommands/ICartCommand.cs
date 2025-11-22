@@ -2,7 +2,7 @@
 using _2GoFood4Less.Server.Models.User.UserObjects;
 using System;
 
-namespace _2GoFood4Less.Server.Services.CartServices
+namespace _2GoFood4Less.Server.Services.CartServices.CartCommands
 {
     public interface ICartCommand
     {
