@@ -1,6 +1,6 @@
 ﻿using _2GoFood4Less.Server.Data;
+using _2GoFood4Less.Server.Models.AuthObjects;
 using _2GoFood4Less.Server.Models.OrderObjects;
-using _2GoFood4Less.Server.Models.User.UserObjects;
 using _2GoFood4Less.Server.Services.OrderService;
 using _2GoFood4Less.Server.Services.OrderService.OrderCommands;
 using Microsoft.AspNetCore.Identity;

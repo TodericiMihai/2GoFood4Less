@@ -1,4 +1,4 @@
-﻿namespace _2GoFood4Less.Server.Models.User.UserObjects
+﻿namespace _2GoFood4Less.Server.Controllers.AuthControllerData.AuthDto
 {
     public class Login
     {

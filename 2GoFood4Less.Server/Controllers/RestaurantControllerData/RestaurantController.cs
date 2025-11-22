@@ -1,6 +1,6 @@
 ﻿using _2GoFood4Less.Server.Controllers.RestaurantControllerData.RestaurantDto;
+using _2GoFood4Less.Server.Models.AuthObjects;
 using _2GoFood4Less.Server.Models.RestaurantObjects;
-using _2GoFood4Less.Server.Models.User.UserObjects;
 using _2GoFood4Less.Server.Models.Utils.Photo.PhotoObjects;
 using _2GoFood4Less.Server.Services.RestaurantServices;
 using _2GoFood4Less.Server.Services.RestaurantServices.RestaurantCommands;

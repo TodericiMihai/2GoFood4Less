@@ -1,6 +1,7 @@
-﻿using _2GoFood4Less.Server.Models.OrderObjects;
+﻿using _2GoFood4Less.Server.Models.AuthObjects;
+using _2GoFood4Less.Server.Models.OrderObjects;
 using _2GoFood4Less.Server.Models.RestaurantObjects;
-using _2GoFood4Less.Server.Models.User.UserObjects;
+using _2GoFood4Less.Server.Models.User.CartObjects;
 using _2GoFood4Less.Server.Models.UserObjects;
 using _2GoFood4Less.Server.Models.Utils.Photo.PhotoObjects;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -10,7 +11,7 @@ using System.Reflection.Emit;
 
 namespace _2GoFood4Less.Server.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<Client>
+    public class ApplicationDbContext : IdentityDbContext<AppUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
        
@@ -44,7 +45,15 @@ namespace _2GoFood4Less.Server.Data
                 .WithOne(c => c.Client)
                 .HasForeignKey<Cart>(c => c.ClientId)
                 .IsRequired(false)
-                .OnDelete(DeleteBehavior.Cascade); 
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // ---------- Manager → Restaurant 1:many ----------
+            builder.Entity<Manager>()
+                .HasMany(r => r.Restaurants)
+                .WithOne(m => m.Manager)
+                .HasForeignKey(m => m.ManagerId)
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.Cascade);
 
             // ---------- Client -> Order 1:many ----------
             builder.Entity<Client>()
@@ -129,6 +138,10 @@ namespace _2GoFood4Less.Server.Data
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade);
 
+            builder.Entity<AppUser>()
+                .HasDiscriminator<string>("UserType")
+                .HasValue<Client>("Client")
+                .HasValue<Manager>("Manager");
         }
     }
 }

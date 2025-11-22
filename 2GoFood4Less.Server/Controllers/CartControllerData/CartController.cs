@@ -1,5 +1,4 @@
 ﻿using _2GoFood4Less.Server.Data;
-using _2GoFood4Less.Server.Models.User.UserObjects;
 using _2GoFood4Less.Server.Services.CartServices;
 using _2GoFood4Less.Server.Services.CartServices.CartCommands;
 using _2GoFood4Less.Server.Services.CartServices.CartCalcualtion;
@@ -8,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 using _2GoFood4Less.Server.Controllers.CartControllerData.CartDto;
+using _2GoFood4Less.Server.Models.AuthObjects;
 
 namespace _2GoFood4Less.Server.Controllers.CartControllerData
 {

@@ -1,15 +1,16 @@
-﻿using _2GoFood4Less.Server.Models.OrderObjects;
+﻿using _2GoFood4Less.Server.Models.AuthObjects;
+using _2GoFood4Less.Server.Models.OrderObjects;
 using _2GoFood4Less.Server.Models.Utils.Photo.PhotoObjects;
+using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace _2GoFood4Less.Server.Models.RestaurantObjects
 {
-    public class Restaurant
+    public class Restaurant 
     {
         [Key]
         public string Id { get; set; }
-        
         [Required]
         public string Name { get; set; }
         
@@ -24,6 +25,12 @@ namespace _2GoFood4Less.Server.Models.RestaurantObjects
 
         [Column(TypeName = "timestamp")]
         public DateTime ClosingTime { get; set; } 
+
+        public string ManagerId { get; set; }
+
+        [ForeignKey("ManagerId")]
+        public Manager Manager {  get; set; }
+        
         public ICollection<Menu> Menus { get; set; } = new List<Menu>();
 
         public ICollection<Order> Orders { get; set; } = new List<Order>();

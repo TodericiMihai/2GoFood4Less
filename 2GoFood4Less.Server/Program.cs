@@ -1,7 +1,7 @@
-
 using _2GoFood4Less.Server.Data;
-using _2GoFood4Less.Server.Models.User.UserObjects;
+using _2GoFood4Less.Server.Models.AuthObjects;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace _2GoFood4Less.Server
 {
@@ -12,49 +12,46 @@ namespace _2GoFood4Less.Server
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
             builder.Services.AddControllers();
             builder.Services.AddAuthorization();
-            builder.Services.AddDbContext<ApplicationDbContext>(options => {
+
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            {
                 options.UseNpgsql(builder.Configuration.GetConnectionString("Default"));
             });
 
-            builder.Services.AddIdentityApiEndpoints<Client>().AddEntityFrameworkStores<ApplicationDbContext>();
+            // Register Identity ONLY ONCE — for AppUser
+            builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
+            {
+                options.SignIn.RequireConfirmedAccount = false;
 
-            builder.Services.AddIdentityCore<Client>(options => {
-                options.SignIn.RequireConfirmedAccount = true;
                 options.Password.RequireDigit = true;
                 options.Password.RequireNonAlphanumeric = true;
                 options.Password.RequireUppercase = true;
                 options.Password.RequiredLength = 6;
-                options.Password.RequiredUniqueChars = 0;
 
-                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
-                options.Lockout.MaxFailedAccessAttempts = 5;
-                options.Lockout.AllowedForNewUsers = true;
-
-                // User settings.
-                options.User.AllowedUserNameCharacters =
-                "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
                 options.User.RequireUniqueEmail = true;
 
-            }).AddEntityFrameworkStores<ApplicationDbContext>();
+                options.Lockout.MaxFailedAccessAttempts = 5;
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+
+            })
+            .AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddDefaultTokenProviders();
 
             var app = builder.Build();
 
             app.UseDefaultFiles();
             app.UseStaticFiles();
 
-
-
-            // Configure the HTTP request pipeline.
-
             app.UseHttpsRedirection();
 
+            app.UseAuthentication(); // IMPORTANT!
             app.UseAuthorization();
-            app.MapIdentityApi<Client>();
 
             app.MapControllers();
+
+            // app.MapIdentityApi<Client>(); 
 
             app.MapFallbackToFile("/index.html");
 

@@ -1,4 +1,4 @@
-﻿using _2GoFood4Less.Server.Models.User.UserObjects;
+﻿using _2GoFood4Less.Server.Models.User.CartObjects;
 using _2GoFood4Less.Server.Services.CartServices.CartCommands;
 
 namespace _2GoFood4Less.Server.Services.CartServices
