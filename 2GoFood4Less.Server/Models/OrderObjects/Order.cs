@@ -9,7 +9,7 @@ namespace _2GoFood4Less.Server.Models.OrderObjects
     {
 
         [Key]
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public ICollection<OrderItem> OrderItems { get; set; } =new List<OrderItem>();
 

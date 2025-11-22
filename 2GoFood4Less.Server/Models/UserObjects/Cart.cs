@@ -8,7 +8,7 @@ namespace _2GoFood4Less.Server.Models.User.UserObjects
     public class Cart
     {
         [Key]
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
 

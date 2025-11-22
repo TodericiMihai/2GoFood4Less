@@ -6,7 +6,7 @@ namespace _2GoFood4Less.Server.Models.OrderObjects
     public class Payment
     {
         [Key]
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         [Required]
         public PaymentMethod PaymentMethod { get; set; }

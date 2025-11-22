@@ -22,7 +22,6 @@ namespace _2GoFood4Less.Server.Models.RestaurantObjects
 
         [ForeignKey("MenuId")]
         public Menu Menu { get; set; }
-
-
+        public int Price { get; set; }
     }
 }
