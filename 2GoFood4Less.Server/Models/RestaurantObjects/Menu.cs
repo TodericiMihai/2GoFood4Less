@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace _2GoFood4Less.Server.Models.RestaurantObjects
 {
@@ -16,6 +17,7 @@ namespace _2GoFood4Less.Server.Models.RestaurantObjects
 
         public string RestaurantId { get; set; }
 
+        [JsonIgnore]
         [ForeignKey("RestaurantId")]
         public Restaurant Restaurant { get; set; }
 

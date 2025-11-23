@@ -31,7 +31,7 @@ function Register() {
                         <br />
                         <label htmlFor="password">Password</label>
                         <br />
-                        <input type="password" name='PasswordHash' id='password' required />
+                        <input type="password" name='Password' id='password' required />
 
                         <br />
                         <input type="submit" value="Register" className='register btn' />
@@ -48,17 +48,25 @@ function Register() {
         e.preventDefault();
         const form_ = e.target, submitter = document.querySelector("input.login");
 
-        const formData = new FormData(form_, submitter), dataToSend = {};
+        // const formData = new FormData(form_, submitter); dataToSend = {};
 
-        for (const [key, value] of formData) {
-            dataToSend[key] = value;
-        }
+        // for (const [key, value] of formData) {
+        //     dataToSend[key] = value;
+        // }
+
+        const dataToSend = {
+            Name: form_.name.value,
+            Email: form_.email.value,
+            UserName: form_.name.value.replace(/\s+/g, ''),
+            password: form_.password.value,
+            Password: form_.password.value
+        };
 
         // create username
         const newUserName = dataToSend.Name.trim().split(" ");
         dataToSend.UserName = newUserName.join("");
 
-        const response = await fetch("api/Auth/register", {
+        const response = await fetch("api/manager/auth/register", {
             method: "POST",
             credentials: "include",
             body: JSON.stringify(dataToSend),
@@ -77,7 +85,7 @@ function Register() {
         const messageEl = document.querySelector(".message");
         if (data.message) {
             messageEl.innerHTML = data.message;
-        } else {
+        } else if (data.errors && Array.isArray(data.errors)) {
             let errorMessages = "<div>Attention please:</div><div class='normal'>";
             data.errors.forEach(error => {
                 errorMessages += error.description + " ";
@@ -85,6 +93,8 @@ function Register() {
 
             errorMessages += "</div>";
             messageEl.innerHTML = errorMessages;
+        } else {
+            messageEl.innerHTML = "<div>An error occurred during registration. Please try again.</div>";
         }
 
         console.log("login error: ", data);

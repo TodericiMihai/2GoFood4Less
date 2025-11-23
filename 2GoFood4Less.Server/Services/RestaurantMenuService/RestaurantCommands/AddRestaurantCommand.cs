@@ -11,19 +11,17 @@ namespace _2GoFood4Less.Server.Services.RestaurantServices.RestaurantCommands
         private readonly string _name;
         private readonly string _description;
         private readonly string _foodType;
-        private readonly RestaurantPhoto _photo;
-        private readonly DateTime _openTime;
-        private readonly DateTime _closingTime;
+        private readonly string _managerId;
+
 
         public AddRestaurantCommand(string name, string description, string foodType,
-            RestaurantPhoto photo, DateTime openTime, DateTime closingTime)
+           string managerId)
         {
             _name = name;
             _description = description;
             _foodType = foodType;
-            _photo = photo;
-            _openTime = openTime;
-            _closingTime = closingTime;
+            _managerId = managerId;
+
         }
 
         public async Task Execute(Restaurant unused, ApplicationDbContext db)
@@ -36,9 +34,7 @@ namespace _2GoFood4Less.Server.Services.RestaurantServices.RestaurantCommands
                     Name = _name,
                     Description = _description,
                     FoodType = _foodType,
-                    Photo = _photo,
-                    OpenTime = _openTime,
-                    ClosingTime = _closingTime
+                    ManagerId = _managerId,
                 };
 
                 db.Restaurants.Add(restaurant);

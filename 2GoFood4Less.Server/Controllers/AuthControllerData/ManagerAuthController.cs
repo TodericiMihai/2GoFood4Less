@@ -11,12 +11,10 @@ namespace _2GoFood4Less.Server.Controllers.AuthControllerData
     [ApiController]
     public class ManagerAuthController : ControllerBase
     {
-        private readonly UserManager<Manager> _userManager;
-        private readonly SignInManager<Manager> _signInManager;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly SignInManager<AppUser> _signInManager;
 
-        public ManagerAuthController(
-            UserManager<Manager> userManager,
-            SignInManager<Manager> signInManager)
+        public ManagerAuthController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -24,37 +22,39 @@ namespace _2GoFood4Less.Server.Controllers.AuthControllerData
 
         // REGISTER -----------------------------------------------------
         [HttpPost("register")]
-        public async Task<ActionResult> Register(Manager manager)
+        public async Task<ActionResult> Register(RegisterDto dto)
         {
             try
             {
-                    var newManager = new Manager
+                var manager = new Manager
                 {
-                    Name = manager.Name,
-                    Email = manager.Email,
-                    UserName = manager.UserName,
+                    Name = dto.Name,
+                    Email = dto.Email,
+                    UserName = dto.UserName,
                 };
 
-                var result = await _userManager.CreateAsync(newManager, manager.PasswordHash);
+                var result = await _userManager.CreateAsync(manager, dto.Password);
 
                 if (!result.Succeeded)
                     return BadRequest(result.Errors);
+
+                return Ok(new { message = "Manager registered successfully." });
             }
             catch (Exception ex)
             {
-                return BadRequest("Something went wrong, please try again. " + ex.Message);
+                return BadRequest(new { message = ex.Message });
             }
-
-            return Ok(new { message = "Manager registered successfully." });
         }
+
 
         // LOGIN --------------------------------------------------------
         [HttpPost("login")]
         public async Task<ActionResult> Login(Login login)
         {
+            Manager manager = null;
             try
             {
-                var manager = await _userManager.FindByEmailAsync(login.Email);
+                manager = (Manager)await _userManager.FindByEmailAsync(login.Email);
                 if (manager == null) return Unauthorized("Invalid credentials.");
 
                 var result = await _signInManager.PasswordSignInAsync(manager, login.Password, login.Remember, false);
@@ -65,12 +65,23 @@ namespace _2GoFood4Less.Server.Controllers.AuthControllerData
                 manager.LastLogin = DateTime.Now;
                 await _userManager.UpdateAsync(manager);
 
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 return BadRequest(new { message = "Something went wrong, please try again. " + ex.Message });
             }
 
-            return Ok(new { message = "Manager login successful." });
+            return Ok(new
+            {
+                message = "Manager login successful.",
+                user = new
+                {
+                    id = manager.Id,
+                    name = manager.Name,
+                    email = manager.Email
+                }
+            });
+
         }
 
         // LOGOUT -------------------------------------------------------

@@ -1,4 +1,5 @@
 ﻿using _2GoFood4Less.Server.Data;
+using _2GoFood4Less.Server.Models.AuthObjects;
 using _2GoFood4Less.Server.Models.RestaurantObjects;
 using _2GoFood4Less.Server.Services.RestaurantServices.RestaurantCommands;
 using Microsoft.EntityFrameworkCore;
@@ -36,8 +37,26 @@ namespace _2GoFood4Less.Server.Services.RestaurantServices
             return await _db.Restaurants
                 .Include(r => r.Menus)
                     .ThenInclude(m => m.Items)
-                .Include(r => r.Orders)
+                //.Include(r => r.Orders)
                 .FirstOrDefaultAsync(r => r.Id == id);
+
+        }
+
+        public async Task<List<Restaurant>> GetAllAsync()
+        {
+            return await _db.Restaurants
+                .Include(r => r.Menus)
+                    .ThenInclude(m => m.Items)
+                .ToListAsync();
+        }
+
+        public async Task<List<Restaurant>> GetByManagerIdAsync(string managerId)
+        {
+            return await _db.Restaurants
+                .Include(r => r.Menus)
+                    .ThenInclude(m => m.Items)
+                .Where(r => r.ManagerId == managerId)
+                .ToListAsync();
         }
     }
 }

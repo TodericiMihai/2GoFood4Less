@@ -58,7 +58,7 @@ function Login() {
         }
 
         console.log("login data before send: ", dataToSend);
-        const response = await fetch("api/Auth/login", {
+        const response = await fetch("api/manager/auth/login", {
             method: "POST",
             credentials: "include",
             body: JSON.stringify(dataToSend),
@@ -71,7 +71,8 @@ function Login() {
         const data = await response.json();
 
         if (response.ok) {
-            localStorage.setItem("user", dataToSend.Email);
+            localStorage.setItem("userId", data.user.id);
+   //         localStorage.setItem("user", data.user.email);
             document.location = "/";
         }
 

@@ -16,15 +16,30 @@ namespace _2GoFood4Less.Server.Controllers.RestaurantControllerData
     public class RestaurantController : ControllerBase
     {
         private readonly RestaurantService _restaurantService;
-        private readonly UserManager<Client> _userManager;
+        private readonly UserManager<AppUser> _userManager;
 
-        public RestaurantController(RestaurantService restaurantService, UserManager<Client> userManager)
+        public RestaurantController(RestaurantService restaurantService, UserManager<AppUser> userManager)
         {
             _restaurantService = restaurantService;
             _userManager = userManager;
         }
 
-        // GET: api/restaurant/{id}
+        // GET: api/restaurant/manager/{id}
+        [HttpGet("manager/{id}")]
+        public async Task<IActionResult> GetRestaurantbyManager(string id)
+        {
+            try
+            {
+                var restaurant = await _restaurantService.GetByManagerIdAsync(id);
+                if (restaurant == null) return NotFound();
+                return Ok(restaurant);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error retrieving restaurant: {ex.Message}");
+            }
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetRestaurant(string id)
         {
@@ -50,9 +65,7 @@ namespace _2GoFood4Less.Server.Controllers.RestaurantControllerData
                     request.Name,
                     request.Description,
                     request.FoodType,
-                    request.Photo,
-                    request.OpenTime,
-                    request.ClosingTime
+                    request.ManagerId
                 );
 
                 var restaurant = await _restaurantService.ExecuteCommandAsync(null, command);

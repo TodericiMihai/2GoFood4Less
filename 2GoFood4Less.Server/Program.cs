@@ -1,7 +1,10 @@
 using _2GoFood4Less.Server.Data;
 using _2GoFood4Less.Server.Models.AuthObjects;
-using Microsoft.EntityFrameworkCore;
+using _2GoFood4Less.Server.Services;
+using _2GoFood4Less.Server.Services.MenuServices;
+using _2GoFood4Less.Server.Services.RestaurantServices;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace _2GoFood4Less.Server
 {
@@ -11,7 +14,6 @@ namespace _2GoFood4Less.Server
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
             builder.Services.AddControllers();
             builder.Services.AddAuthorization();
 
@@ -20,7 +22,10 @@ namespace _2GoFood4Less.Server
                 options.UseNpgsql(builder.Configuration.GetConnectionString("Default"));
             });
 
-            // Register Identity ONLY ONCE — for AppUser
+            builder.Services.AddScoped<RestaurantService>();
+            builder.Services.AddScoped<MenuService>();
+            builder.Services.AddScoped<MenuItemService>();
+
             builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
             {
                 options.SignIn.RequireConfirmedAccount = false;
@@ -41,19 +46,17 @@ namespace _2GoFood4Less.Server
 
             var app = builder.Build();
 
-            app.UseDefaultFiles();
-            app.UseStaticFiles();
+            // Remove static + default files (you have no frontend)
+            // app.UseDefaultFiles();
+            // app.UseStaticFiles();
+            // app.MapFallbackToFile("index.html");
 
             app.UseHttpsRedirection();
 
-            app.UseAuthentication(); // IMPORTANT!
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllers();
-
-            // app.MapIdentityApi<Client>(); 
-
-            app.MapFallbackToFile("/index.html");
 
             app.Run();
         }

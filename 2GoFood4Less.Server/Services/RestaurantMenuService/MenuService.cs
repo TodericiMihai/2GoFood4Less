@@ -37,5 +37,13 @@ namespace _2GoFood4Less.Server.Services.MenuServices
                 .Include(m => m.Restaurant)
                 .FirstOrDefaultAsync(m => m.Id == id);
         }
+
+        public async Task<List<Menu>> GetAllByRestaurantIdAsync(string restaurantId)
+        {
+            return await _db.Menus
+                .Include(m => m.Items)
+                .Where(m => m.RestaurantId == restaurantId)
+                .ToListAsync();
+        }
     }
 }

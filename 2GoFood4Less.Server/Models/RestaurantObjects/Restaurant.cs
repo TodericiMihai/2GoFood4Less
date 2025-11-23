@@ -16,24 +16,24 @@ namespace _2GoFood4Less.Server.Models.RestaurantObjects
         
         public string ?Description { get; set; }
 
-        public RestaurantPhoto Photo { get; set; }
+        public RestaurantPhoto ?Photo { get; set; }
 
         public string ?FoodType { get; set; }//maybe i shoud make it a list
 
-        [Column(TypeName = "timestamp")]
-        public DateTime OpenTime { get; set; }
+        [Column(TypeName = "time")]
+        public TimeSpan ?OpenTime { get; set; }
 
-        [Column(TypeName = "timestamp")]
-        public DateTime ClosingTime { get; set; } 
+        [Column(TypeName = "time")]
+        public TimeSpan ?ClosingTime { get; set; } 
 
         public string ManagerId { get; set; }
 
         [ForeignKey("ManagerId")]
         public Manager Manager {  get; set; }
         
-        public ICollection<Menu> Menus { get; set; } = new List<Menu>();
+        public ICollection<Menu> ?Menus { get; set; } = new List<Menu>();
 
-        public ICollection<Order> Orders { get; set; } = new List<Order>();
+        public ICollection<Order> ?Orders { get; set; } = new List<Order>();
 
         public int ToPay => Orders.Count * 2;
 

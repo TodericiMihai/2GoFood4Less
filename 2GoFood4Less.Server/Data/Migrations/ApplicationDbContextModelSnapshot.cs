@@ -387,8 +387,8 @@ namespace _2GoFood4Less.Server.Data.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("ClosingTime")
-                        .HasColumnType("timestamp");
+                    b.Property<TimeSpan?>("ClosingTime")
+                        .HasColumnType("time");
 
                     b.Property<string>("Description")
                         .HasColumnType("text");
@@ -403,8 +403,8 @@ namespace _2GoFood4Less.Server.Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("OpenTime")
-                        .HasColumnType("timestamp");
+                    b.Property<TimeSpan?>("OpenTime")
+                        .HasColumnType("time");
 
                     b.HasKey("Id");
 
@@ -741,8 +741,7 @@ namespace _2GoFood4Less.Server.Data.Migrations
 
                     b.Navigation("Orders");
 
-                    b.Navigation("Photo")
-                        .IsRequired();
+                    b.Navigation("Photo");
                 });
 
             modelBuilder.Entity("_2GoFood4Less.Server.Models.User.CartObjects.Cart", b =>

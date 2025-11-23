@@ -2,7 +2,8 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } 
 import ProtectedRoutes from './ProtectedRoutes';
 import './App.css'
 import Home from './Components/Dashboard/Home'
-import Admin from './Components/Dashboard/Admin'
+import RestaurantDetails from './Components/Dashboard/RestaurantDetails'
+import MenuDetails from './Components/Dashboard/MenuDetails'
 import Login from './Components/Auth/Login'
 import Register from './Components/Auth/Register'
 
@@ -12,7 +13,8 @@ const router = createBrowserRouter(
         <Route path='/'>
             <Route element={<ProtectedRoutes />}>
                 <Route path='/' element={<Home />} />
-                <Route path='/admin' element={<Admin />} />
+                <Route path='/restaurant/:id' element={<RestaurantDetails />} />
+                <Route path='/menu/:id' element={<MenuDetails />} />
             </Route>
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
@@ -30,45 +32,45 @@ const router = createBrowserRouter(
     )
 );
 function App() {
-  const isLogged = localStorage.getItem("user");
-  const logout = async () => {
-    const response = await fetch("/api/Auth/logout", {
-        method: "GET",
-        credentials: "include"
-    });
+    const isLogged = localStorage.getItem("user");
+    const logout = async () => {
+        const response = await fetch("/api/manager/auth/logout", {
+            method: "GET",
+            credentials: "include"
+        });
 
-    const data = await response.json();
-    if (response.ok) {
-        localStorage.removeItem("user");
+        const data = await response.json();
+        if (response.ok) {
+            localStorage.removeItem("user");
+            localStorage.removeItem("userId");
 
-        alert(data.message);
+            alert(data.message);
 
-        document.location = "/login";
-    } else {
-        console.log("could not logout: ", response);
-    }
-};
+            document.location = "/login";
+        } else {
+            console.log("could not logout: ", response);
+        }
+    };
 
-  return (
-    <section>
-        <div className='top-nav'>
-            {
-                isLogged ?
-                    <span className='item-holder'>
-                        <a href="/">Home</a>
-                        <a href="/admin">Admin</a>
-                        <span onClick={logout}>Log Out</span>
-                    </span> :
-                    <span className='item-holder'>
-                        <a href="/login">Login</a>
-                        <a href="/register">Register</a>
-                    </span>
-            }
-        </div>
+    return (
+        <section>
+            <div className='top-nav'>
+                {
+                    isLogged ?
+                        <span className='item-holder'>
+                            <a href="/">Home</a>
+                            <span onClick={logout}>Log Out</span>
+                        </span> :
+                        <span className='item-holder'>
+                            <a href="/login">Login</a>
+                            <a href="/register">Register</a>
+                        </span>
+                }
+            </div>
 
-        <RouterProvider router={router} />
-    </section>
-  );
+            <RouterProvider router={router} />
+        </section>
+    );
 }
 
 export default App

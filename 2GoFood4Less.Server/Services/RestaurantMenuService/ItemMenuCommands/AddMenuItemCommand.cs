@@ -12,14 +12,13 @@ namespace _2GoFood4Less.Server.Services.MenuServices.MenuCommands
         private readonly string _name;
         private readonly string _description;
         private readonly int _price;
-        private readonly MenuItemPhoto _photo;
 
-        public AddMenuItemCommand(string name, string description, int price, MenuItemPhoto photo)
+        public AddMenuItemCommand(string name, string description, int price)
         {
             _name = name;
             _description = description;
             _price = price;
-            _photo = photo;
+
         }
 
         public async Task Execute(Menu menu, ApplicationDbContext db)
@@ -32,7 +31,6 @@ namespace _2GoFood4Less.Server.Services.MenuServices.MenuCommands
                     Name = _name,
                     Description = _description,
                     Price = _price,
-                    Photo = _photo,
                     MenuId = menu.Id,
                     Menu = menu
                 };

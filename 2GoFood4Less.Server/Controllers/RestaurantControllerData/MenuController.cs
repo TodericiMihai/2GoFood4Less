@@ -36,6 +36,22 @@ namespace _2GoFood4Less.Server.Controllers.MenuControllerData
             }
         }
 
+        // GET: api/menu/restaurant/{id}
+        [HttpGet("restaurant/{id}")]
+        public async Task<IActionResult> GetAllMenusByRestaurant(string id)
+        {
+            try
+            {
+                var menu = await _menuService.GetAllByRestaurantIdAsync(id);
+                if (menu == null) return NotFound();
+                return Ok(menu);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error retrieving menu: {ex.Message}");
+            }
+        }
+
         // POST: api/menu/add
         [HttpPost("add")]
         public async Task<IActionResult> AddMenu([FromBody] AddMenuRequest request)
