@@ -1,13 +1,16 @@
-﻿using _2GoFood4Less.Server.Data;
+﻿using _2GoFood4Less.Server.Controllers.CartControllerData.CartDto;
+using _2GoFood4Less.Server.Data;
+using _2GoFood4Less.Server.Models.AuthObjects;
 using _2GoFood4Less.Server.Services.CartServices;
-using _2GoFood4Less.Server.Services.CartServices.CartCommands;
 using _2GoFood4Less.Server.Services.CartServices.CartCalcualtion;
+using _2GoFood4Less.Server.Services.CartServices.CartCommands;
+using _2GoFood4Less.Server.Services.CartServices.CartCommands.CartCommandsDto;
+using _2GoFood4Less.Server.Services.OrderService;
+using _2GoFood4Less.Server.Services.OrderService.OrderCommands;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
-using _2GoFood4Less.Server.Controllers.CartControllerData.CartDto;
-using _2GoFood4Less.Server.Models.AuthObjects;
 
 namespace _2GoFood4Less.Server.Controllers.CartControllerData
 {
@@ -22,6 +25,7 @@ namespace _2GoFood4Less.Server.Controllers.CartControllerData
         {
             _cartService = cartService;
             _userManager = userManager;
+            
         }
 
         // GET: api/cart/{clientId}
@@ -90,13 +94,16 @@ namespace _2GoFood4Less.Server.Controllers.CartControllerData
 
         // POST: api/cart/checkout/{clientId}
         [HttpPost("checkout/{clientId}")]
-        public async Task<IActionResult> Checkout(string clientId)
+        public async Task<IActionResult> Checkout(string clientId,OrderLocationPayment dto)
         {
             try
             {
-                var command = new CreateOrderFromCartCommand();
+
+                var command = new CreateOrderFromCartCommand(dto);
                 var cart = await _cartService.ExecuteCommandAsync(clientId, command);
+
                 if (cart == null) return BadRequest("Cart is empty or invalid.");
+
                 return Ok(cart);
             }
             catch (Exception ex)

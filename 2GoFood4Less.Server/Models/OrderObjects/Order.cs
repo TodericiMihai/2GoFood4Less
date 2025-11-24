@@ -1,5 +1,6 @@
 ﻿using _2GoFood4Less.Server.Models.AuthObjects;
 using _2GoFood4Less.Server.Models.RestaurantObjects;
+using _2GoFood4Less.Server.Models.Utils.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
@@ -31,5 +32,7 @@ namespace _2GoFood4Less.Server.Models.OrderObjects
         public string UserSpecificRequests { get; set; }
 
         public OrderStatus Status { get; set; }
+
+        public string Location { get; set; }
     }
 }

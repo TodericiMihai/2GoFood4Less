@@ -1,5 +1,6 @@
 ﻿using _2GoFood4Less.Server.Data;
 using _2GoFood4Less.Server.Models.OrderObjects;
+using _2GoFood4Less.Server.Models.Utils.Enums;
 using System;
 
 namespace _2GoFood4Less.Server.Services.OrderService.OrderCommands

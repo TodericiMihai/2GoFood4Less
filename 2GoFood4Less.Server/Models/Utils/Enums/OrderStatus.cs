@@ -1,4 +1,4 @@
-﻿namespace _2GoFood4Less.Server.Models.OrderObjects
+﻿namespace _2GoFood4Less.Server.Models.Utils.Enums
 {
     public enum OrderStatus
     {

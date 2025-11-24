@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 using _2GoFood4Less.Server.Models.Utils.Enums;
 namespace _2GoFood4Less.Server.Models.OrderObjects
 {
@@ -17,6 +18,7 @@ namespace _2GoFood4Less.Server.Models.OrderObjects
         public string OrderId { get; set; }
 
         [ForeignKey("OrderId")]
+        [JsonIgnore]
         public Order Order { get; set; }
 
     }

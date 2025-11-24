@@ -156,6 +156,12 @@ function RestaurantOrders() {
                                 </span>
                             </div>
 
+                            <div style={{ marginBottom: '1rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+                                <p><strong>Location:</strong> {order.location}</p>
+                                <p><strong>Payment:</strong> {order.paymentMethod === 0 ? 'Cash' : 'Card'}</p>
+                                <p><strong>Total:</strong> ${order.value?.toFixed(2)}</p>
+                            </div>
+
                             <div style={{ borderTop: '1px solid var(--border)', paddingTop: '1rem', marginBottom: '1rem' }}>
                                 <h4 style={{ marginBottom: '0.75rem', fontSize: '1rem' }}>Items:</h4>
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>

@@ -110,6 +110,7 @@ namespace _2GoFood4Less.Server.Services.OrderService
                 var orders = await _db.Orders
                     .Include(o => o.OrderItems)
                         .ThenInclude(oi => oi.MenuItem)
+                    .Include(o => o.Payment)
                     .Include(o => o.Restaurant)
                     .Where(o => o.ClientId == clientId)
                     .ToListAsync();
@@ -122,6 +123,9 @@ namespace _2GoFood4Less.Server.Services.OrderService
                     RestaurantId = order.Restaurant.Id,
                     RestaurantName = order.Restaurant.Name,
                     Status = order.Status,
+                    Location = order.Location,
+                    PaymentMethod = order.Payment.PaymentMethod,
+                    Value = order.Payment.Value,
                     OrderItems = order.OrderItems.Select(oi => new OrderItemDto
                     {
                         Id = oi.MenuItem.Id,
@@ -145,7 +149,8 @@ namespace _2GoFood4Less.Server.Services.OrderService
                         .Include(o => o.OrderItems)
                             .ThenInclude(oi => oi.MenuItem)
                         .Include(o => o.Client)
-                        .Include(o => o.Restaurant) // <--- include this
+                        .Include(o => o.Payment)
+                        .Include(o => o.Restaurant)
                         .Where(o => o.RestaurantId == restaurantId)
                         .ToListAsync();
 
@@ -157,6 +162,9 @@ namespace _2GoFood4Less.Server.Services.OrderService
                     RestaurantId = order.RestaurantId,
                     RestaurantName = order.Restaurant.Name,
                     Status = order.Status,
+                    Location = order.Location,
+                    PaymentMethod = order.Payment.PaymentMethod,
+                    Value = order.Payment.Value,
                     OrderItems = order.OrderItems.Select(oi => new OrderItemDto
                     {
                         Id = oi.MenuItem.Id,
