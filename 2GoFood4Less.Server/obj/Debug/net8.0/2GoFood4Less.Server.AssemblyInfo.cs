@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("eb4a1f66-22b0-4e25-9724-21b184d1c5f1")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("2GoFood4Less.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+61a6cd8d0f5d11b97570ae19b09060a4f1716189")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bc6fbbbfd80b025048af9452fa21eaffbb71fae5")]
 [assembly: System.Reflection.AssemblyProductAttribute("2GoFood4Less.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("2GoFood4Less.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

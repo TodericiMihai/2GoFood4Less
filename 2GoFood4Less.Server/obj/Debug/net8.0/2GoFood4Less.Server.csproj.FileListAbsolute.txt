@@ -311,3 +311,4 @@ C:\Users\todmi\Desktop\2GoFood4Less\2GoFood4Less.Server\obj\Debug\net8.0\refint\
 C:\Users\todmi\Desktop\2GoFood4Less\2GoFood4Less.Server\obj\Debug\net8.0\2GoFood4Less.Server.pdb
 C:\Users\todmi\Desktop\2GoFood4Less\2GoFood4Less.Server\obj\Debug\net8.0\2GoFood4Less.Server.genruntimeconfig.cache
 C:\Users\todmi\Desktop\2GoFood4Less\2GoFood4Less.Server\obj\Debug\net8.0\ref\2GoFood4Less.Server.dll
+C:\Users\todmi\Desktop\2GoFood4Less\2GoFood4Less.Server\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

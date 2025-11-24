@@ -7,14 +7,14 @@ namespace _2GoFood4Less.Server.Models.AuthObjects
     {
         public string Name { get; set; }
 
-        [Column(TypeName = "timestamp")]
-        public DateTime CreatedDate { get; set; } = DateTime.Now;
+        [Column(TypeName = "timestamptz")]
+        public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
 
-        [Column(TypeName = "timestamp")]
-        public DateTime ModifiedDate { get; set; } = DateTime.Now;
+        [Column(TypeName = "timestamptz")]
+        public DateTime ModifiedDate { get; set; } = DateTime.UtcNow;
 
-        [Column(TypeName = "timestamp")]
-        public DateTime LastLogin { get; set; } = DateTime.Now;
+        [Column(TypeName = "timestamptz")]
+        public DateTime LastLogin { get; set; } = DateTime.UtcNow;
 
     }
 }

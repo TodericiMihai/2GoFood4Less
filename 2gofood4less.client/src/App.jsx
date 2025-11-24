@@ -6,6 +6,7 @@ import RestaurantDetails from './Components/Dashboard/RestaurantDetails'
 import MenuDetails from './Components/Dashboard/MenuDetails'
 import Login from './Components/Auth/Login'
 import Register from './Components/Auth/Register'
+import api from './utils/axiosConfig';
 
 
 const router = createBrowserRouter(
@@ -32,23 +33,17 @@ const router = createBrowserRouter(
     )
 );
 function App() {
-    const isLogged = localStorage.getItem("user");
+    const isLogged = localStorage.getItem("token");
     const logout = async () => {
-        const response = await fetch("/api/manager/auth/logout", {
-            method: "GET",
-            credentials: "include"
-        });
-
-        const data = await response.json();
-        if (response.ok) {
+        try {
+            await api.get("/manager/auth/logout");
+        } catch (error) {
+            console.error('Logout error:', error);
+        } finally {
+            localStorage.removeItem("token");
             localStorage.removeItem("user");
             localStorage.removeItem("userId");
-
-            alert(data.message);
-
             document.location = "/login";
-        } else {
-            console.log("could not logout: ", response);
         }
     };
 

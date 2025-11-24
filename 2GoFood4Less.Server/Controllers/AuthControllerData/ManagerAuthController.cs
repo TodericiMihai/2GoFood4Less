@@ -1,9 +1,9 @@
-﻿using _2GoFood4Less.Server.Controllers.AuthControllerData.AuthDto;
+﻿using _2GoFood4Less.Server.Controllers.AuthControllerData.AuthDtoManager;
+using _2GoFood4Less.Server.Infrastructure;
 using _2GoFood4Less.Server.Models.AuthObjects;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
 
 namespace _2GoFood4Less.Server.Controllers.AuthControllerData
 {
@@ -12,12 +12,14 @@ namespace _2GoFood4Less.Server.Controllers.AuthControllerData
     public class ManagerAuthController : ControllerBase
     {
         private readonly UserManager<AppUser> _userManager;
-        private readonly SignInManager<AppUser> _signInManager;
+        private readonly TokenProvider _tokenProvider;
 
-        public ManagerAuthController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+        public ManagerAuthController(
+            UserManager<AppUser> userManager,
+            TokenProvider tokenProvider)
         {
             _userManager = userManager;
-            _signInManager = signInManager;
+            _tokenProvider = tokenProvider;
         }
 
         // REGISTER -----------------------------------------------------
@@ -34,7 +36,6 @@ namespace _2GoFood4Less.Server.Controllers.AuthControllerData
                 };
 
                 var result = await _userManager.CreateAsync(manager, dto.Password);
-
                 if (!result.Succeeded)
                     return BadRequest(result.Errors);
 
@@ -46,58 +47,53 @@ namespace _2GoFood4Less.Server.Controllers.AuthControllerData
             }
         }
 
-
         // LOGIN --------------------------------------------------------
         [HttpPost("login")]
         public async Task<ActionResult> Login(Login login)
         {
-            Manager manager = null;
             try
             {
-                manager = (Manager)await _userManager.FindByEmailAsync(login.Email);
-                if (manager == null) return Unauthorized("Invalid credentials.");
-
-                var result = await _signInManager.PasswordSignInAsync(manager, login.Password, login.Remember, false);
-
-                if (!result.Succeeded)
+                var user = await _userManager.FindByEmailAsync(login.Email);
+                if (user is not Manager manager)
                     return Unauthorized("Invalid credentials.");
 
-                manager.LastLogin = DateTime.Now;
+                // Verify password with UserManager
+                bool passwordValid = await _userManager.CheckPasswordAsync(manager, login.Password);
+                if (!passwordValid)
+                    return Unauthorized("Invalid credentials.");
+
+                // Generate JWT token
+                string token = _tokenProvider.Create(manager);
+
+                // Update last login
+                manager.LastLogin = DateTime.UtcNow;
                 await _userManager.UpdateAsync(manager);
 
+                return Ok(new
+                {
+                    message = "Manager login successful.",
+                    token,
+                    user = new
+                    {
+                        id = manager.Id,
+                        name = manager.Name,
+                        email = manager.Email
+                    }
+                });
             }
             catch (Exception ex)
             {
-                return BadRequest(new { message = "Something went wrong, please try again. " + ex.Message });
+                return BadRequest(new { message = "Something went wrong: " + ex.Message });
             }
-
-            return Ok(new
-            {
-                message = "Manager login successful.",
-                user = new
-                {
-                    id = manager.Id,
-                    name = manager.Name,
-                    email = manager.Email
-                }
-            });
-
         }
 
         // LOGOUT -------------------------------------------------------
         [Authorize]
         [HttpGet("logout")]
-        public async Task<ActionResult> Logout()
+        public ActionResult Logout()
         {
-            try
-            {
-                await _signInManager.SignOutAsync();
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(new { message = "Someting went wrong, please try again. " + ex.Message });
-            }
-            return Ok(new { message = "Manager logged out." });
+            // With JWT, logout is client-side: just discard the token
+            return Ok(new { message = "Manager logout successful. Discard the token on the client." });
         }
 
         // CURRENT USER -------------------------------------------------
@@ -105,9 +101,18 @@ namespace _2GoFood4Less.Server.Controllers.AuthControllerData
         [HttpGet("me")]
         public async Task<ActionResult> GetCurrent()
         {
-            var principal = User;
-            var user = await _userManager.GetUserAsync(principal);
-            return Ok(user);
+            var user = await _userManager.GetUserAsync(User);
+            if (user is not Manager manager)
+                return Unauthorized("User is not a manager.");
+
+            return Ok(new
+            {
+                manager.Id,
+                manager.Name,
+                manager.Email,
+                manager.UserName,
+                manager.LastLogin
+            });
         }
     }
 }

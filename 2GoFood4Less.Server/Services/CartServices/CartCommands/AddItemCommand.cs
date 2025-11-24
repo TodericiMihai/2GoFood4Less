@@ -9,13 +9,12 @@ namespace _2GoFood4Less.Server.Services.CartServices.CartCommands
     {
         private readonly string _menuItemId;
         private readonly int _quantity;
-        private readonly ICartCalculator _calculator;
 
-        public AddItemCommand(string menuItemId, int quantity, ICartCalculator calculator)
+        public AddItemCommand(string menuItemId, int quantity)
         {
             _menuItemId = menuItemId;
             _quantity = quantity;
-            _calculator = calculator;
+      
         }
 
         public async Task Execute(Cart cart, ApplicationDbContext db)
@@ -40,7 +39,6 @@ namespace _2GoFood4Less.Server.Services.CartServices.CartCommands
                     });
                 }
 
-                await _calculator.UpdateCartValue(cart, db);
             }
             catch (Exception ex)
             {

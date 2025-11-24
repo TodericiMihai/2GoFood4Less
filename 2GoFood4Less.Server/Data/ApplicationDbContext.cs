@@ -34,6 +34,8 @@ namespace _2GoFood4Less.Server.Data
         public DbSet<Photo> Photos { get; set; } = default!;
         public DbSet<MenuItemPhoto> MenuItemPhotos { get; set; } = default!;
 
+        public DbSet<Client> Clients { get; set; } = default!;
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             

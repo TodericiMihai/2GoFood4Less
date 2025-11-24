@@ -55,6 +55,24 @@ namespace _2GoFood4Less.Server.Controllers.RestaurantControllerData
             }
         }
 
+        // GET: api/restaurant/all
+        [HttpGet("all")]
+        public async Task<IActionResult> GetAllRestaurants()
+        {
+            try
+            {
+                var restaurant = await _restaurantService.GetAllAsync();
+                if (restaurant == null) return NotFound();
+                return Ok(restaurant);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error retrieving restaurant: {ex.Message}");
+            }
+        }
+
+
+
         // POST: api/restaurant/add
         [HttpPost("add")]
         public async Task<IActionResult> AddRestaurant([FromBody] AddRestaurantRequest request)

@@ -3,6 +3,7 @@ using _2GoFood4Less.Server.Models.OrderObjects;
 using _2GoFood4Less.Server.Models.UserObjects;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace _2GoFood4Less.Server.Models.User.CartObjects
 {
@@ -15,7 +16,9 @@ namespace _2GoFood4Less.Server.Models.User.CartObjects
 
         public string ClientId { get; set; }
 
+        
         [ForeignKey("ClientId")]
+        [JsonIgnore]
         public Client Client { get; set; }
 
         public int Value { get; set; }

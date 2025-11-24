@@ -3,32 +3,52 @@
   "WorkspaceRootPath": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|c:\\users\\todmi\\desktop\\2gofood4less\\2gofood4less.server\\services\\cartservices\\cartcommands\\createorderfromcartcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|solutionrelative:2gofood4less.server\\services\\cartservices\\cartcommands\\createorderfromcartcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|c:\\users\\todmi\\desktop\\2gofood4less\\2gofood4less.server\\services\\cartservices\\cartcommands\\updatequantitycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|solutionrelative:2gofood4less.server\\services\\cartservices\\cartcommands\\updatequantitycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|c:\\users\\todmi\\desktop\\2gofood4less\\2gofood4less.server\\services\\cartservices\\cartcommands\\removeitemcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|solutionrelative:2gofood4less.server\\services\\cartservices\\cartcommands\\removeitemcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|c:\\users\\todmi\\desktop\\2gofood4less\\2gofood4less.server\\services\\cartservices\\cartcommands\\icartcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|solutionrelative:2gofood4less.server\\services\\cartservices\\cartcommands\\icartcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|c:\\users\\todmi\\desktop\\2gofood4less\\2gofood4less.server\\services\\cartservices\\cartcommands\\clearcartcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|solutionrelative:2gofood4less.server\\services\\cartservices\\cartcommands\\clearcartcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|c:\\users\\todmi\\desktop\\2gofood4less\\2gofood4less.server\\services\\cartservices\\cartcommands\\additemcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|solutionrelative:2gofood4less.server\\services\\cartservices\\cartcommands\\additemcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|c:\\users\\todmi\\desktop\\2gofood4less\\2gofood4less.server\\services\\cartservices\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|solutionrelative:2gofood4less.server\\services\\cartservices\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|c:\\users\\todmi\\desktop\\2gofood4less\\2gofood4less.server\\controllers\\cartcontrollerdata\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|solutionrelative:2gofood4less.server\\controllers\\cartcontrollerdata\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|c:\\users\\todmi\\desktop\\2gofood4less\\2gofood4less.server\\services\\cartservices\\cartcalcualtion\\cartcalculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|solutionrelative:2gofood4less.server\\services\\cartservices\\cartcalcualtion\\cartcalculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|c:\\users\\todmi\\desktop\\2gofood4less\\2gofood4less.server\\models\\cartobjects\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|solutionrelative:2gofood4less.server\\models\\cartobjects\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|c:\\users\\todmi\\desktop\\2gofood4less\\2gofood4less.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|solutionrelative:2gofood4less.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|c:\\users\\todmi\\desktop\\2gofood4less\\2gofood4less.server\\services\\restaurantmenuservice\\menuitemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|solutionrelative:2gofood4less.server\\services\\restaurantmenuservice\\menuitemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|c:\\users\\todmi\\desktop\\2gofood4less\\2gofood4less.server\\controllers\\restaurantcontrollerdata\\menuitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|solutionrelative:2gofood4less.server\\controllers\\restaurantcontrollerdata\\menuitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|c:\\users\\todmi\\desktop\\2gofood4less\\2gofood4less.server\\services\\restaurantmenuservice\\itemmenucommands\\addmenuitemcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|solutionrelative:2gofood4less.server\\services\\restaurantmenuservice\\itemmenucommands\\addmenuitemcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|c:\\users\\todmi\\desktop\\2gofood4less\\2gofood4less.server\\controllers\\restaurantcontrollerdata\\restaurantdto\\addmenuitemrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|solutionrelative:2gofood4less.server\\controllers\\restaurantcontrollerdata\\restaurantdto\\addmenuitemrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|c:\\users\\todmi\\desktop\\2gofood4less\\2gofood4less.server\\models\\restaurantobjects\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|solutionrelative:2gofood4less.server\\models\\restaurantobjects\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|c:\\users\\todmi\\desktop\\2gofood4less\\2gofood4less.server\\models\\restaurantobjects\\menuitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|solutionrelative:2gofood4less.server\\models\\restaurantobjects\\menuitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|c:\\users\\todmi\\desktop\\2gofood4less\\2gofood4less.server\\models\\cartobjects\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3273794-2764-44C3-BFCF-0AE55539C0A3}|2GoFood4Less.Server\\2GoFood4Less.Server.csproj|solutionrelative:2gofood4less.server\\models\\cartobjects\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,97 +58,162 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Program.cs",
-              "RelativeDocumentMoniker": "2GoFood4Less.Server\\Program.cs",
-              "ToolTip": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Program.cs",
-              "RelativeToolTip": "2GoFood4Less.Server\\Program.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAQwBoAAAA6AAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "UpdateQuantityCommand.cs",
+              "DocumentMoniker": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Services\\CartServices\\CartCommands\\UpdateQuantityCommand.cs",
+              "RelativeDocumentMoniker": "2GoFood4Less.Server\\Services\\CartServices\\CartCommands\\UpdateQuantityCommand.cs",
+              "ToolTip": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Services\\CartServices\\CartCommands\\UpdateQuantityCommand.cs",
+              "RelativeToolTip": "2GoFood4Less.Server\\Services\\CartServices\\CartCommands\\UpdateQuantityCommand.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwCEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-23T14:44:47.734Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AddMenuItemRequest.cs",
-              "DocumentMoniker": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Controllers\\RestaurantControllerData\\RestaurantDto\\AddMenuItemRequest.cs",
-              "RelativeDocumentMoniker": "2GoFood4Less.Server\\Controllers\\RestaurantControllerData\\RestaurantDto\\AddMenuItemRequest.cs",
-              "ToolTip": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Controllers\\RestaurantControllerData\\RestaurantDto\\AddMenuItemRequest.cs",
-              "RelativeToolTip": "2GoFood4Less.Server\\Controllers\\RestaurantControllerData\\RestaurantDto\\AddMenuItemRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-23T14:39:36.802Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Menu.cs",
-              "DocumentMoniker": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Models\\RestaurantObjects\\Menu.cs",
-              "RelativeDocumentMoniker": "2GoFood4Less.Server\\Models\\RestaurantObjects\\Menu.cs",
-              "ToolTip": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Models\\RestaurantObjects\\Menu.cs",
-              "RelativeToolTip": "2GoFood4Less.Server\\Models\\RestaurantObjects\\Menu.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-23T14:39:27.157Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AddMenuItemCommand.cs",
-              "DocumentMoniker": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Services\\RestaurantMenuService\\ItemMenuCommands\\AddMenuItemCommand.cs",
-              "RelativeDocumentMoniker": "2GoFood4Less.Server\\Services\\RestaurantMenuService\\ItemMenuCommands\\AddMenuItemCommand.cs",
-              "ToolTip": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Services\\RestaurantMenuService\\ItemMenuCommands\\AddMenuItemCommand.cs",
-              "RelativeToolTip": "2GoFood4Less.Server\\Services\\RestaurantMenuService\\ItemMenuCommands\\AddMenuItemCommand.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAYwA0AAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-23T14:38:05.683Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "MenuItem.cs",
-              "DocumentMoniker": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Models\\RestaurantObjects\\MenuItem.cs",
-              "RelativeDocumentMoniker": "2GoFood4Less.Server\\Models\\RestaurantObjects\\MenuItem.cs",
-              "ToolTip": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Models\\RestaurantObjects\\MenuItem.cs",
-              "RelativeToolTip": "2GoFood4Less.Server\\Models\\RestaurantObjects\\MenuItem.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAwBMAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-23T14:35:17.04Z",
+              "WhenOpened": "2025-11-24T14:56:40.562Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MenuItemController.cs",
-              "DocumentMoniker": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Controllers\\RestaurantControllerData\\MenuItemController.cs",
-              "RelativeDocumentMoniker": "2GoFood4Less.Server\\Controllers\\RestaurantControllerData\\MenuItemController.cs",
-              "ToolTip": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Controllers\\RestaurantControllerData\\MenuItemController.cs",
-              "RelativeToolTip": "2GoFood4Less.Server\\Controllers\\RestaurantControllerData\\MenuItemController.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAAiwDwAAABlAAAAAAAAAA==",
+              "Title": "RemoveItemCommand.cs",
+              "DocumentMoniker": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Services\\CartServices\\CartCommands\\RemoveItemCommand.cs",
+              "RelativeDocumentMoniker": "2GoFood4Less.Server\\Services\\CartServices\\CartCommands\\RemoveItemCommand.cs",
+              "ToolTip": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Services\\CartServices\\CartCommands\\RemoveItemCommand.cs",
+              "RelativeToolTip": "2GoFood4Less.Server\\Services\\CartServices\\CartCommands\\RemoveItemCommand.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAYwAoAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-23T14:32:42.454Z",
+              "WhenOpened": "2025-11-24T14:56:23.922Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MenuItemService.cs",
-              "DocumentMoniker": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Services\\RestaurantMenuService\\MenuItemService.cs",
-              "RelativeDocumentMoniker": "2GoFood4Less.Server\\Services\\RestaurantMenuService\\MenuItemService.cs",
-              "ToolTip": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Services\\RestaurantMenuService\\MenuItemService.cs",
-              "RelativeToolTip": "2GoFood4Less.Server\\Services\\RestaurantMenuService\\MenuItemService.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAUwDEAAAA9AAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "ICartCommand.cs",
+              "DocumentMoniker": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Services\\CartServices\\CartCommands\\ICartCommand.cs",
+              "RelativeDocumentMoniker": "2GoFood4Less.Server\\Services\\CartServices\\CartCommands\\ICartCommand.cs",
+              "ToolTip": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Services\\CartServices\\CartCommands\\ICartCommand.cs",
+              "RelativeToolTip": "2GoFood4Less.Server\\Services\\CartServices\\CartCommands\\ICartCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-23T14:31:41.246Z",
+              "WhenOpened": "2025-11-24T14:56:21.829Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CreateOrderFromCartCommand.cs",
+              "DocumentMoniker": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Services\\CartServices\\CartCommands\\CreateOrderFromCartCommand.cs",
+              "RelativeDocumentMoniker": "2GoFood4Less.Server\\Services\\CartServices\\CartCommands\\CreateOrderFromCartCommand.cs",
+              "ToolTip": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Services\\CartServices\\CartCommands\\CreateOrderFromCartCommand.cs",
+              "RelativeToolTip": "2GoFood4Less.Server\\Services\\CartServices\\CartCommands\\CreateOrderFromCartCommand.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAwwCQAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T14:56:20.249Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ClearCartCommand.cs",
+              "DocumentMoniker": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Services\\CartServices\\CartCommands\\ClearCartCommand.cs",
+              "RelativeDocumentMoniker": "2GoFood4Less.Server\\Services\\CartServices\\CartCommands\\ClearCartCommand.cs",
+              "ToolTip": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Services\\CartServices\\CartCommands\\ClearCartCommand.cs",
+              "RelativeToolTip": "2GoFood4Less.Server\\Services\\CartServices\\CartCommands\\ClearCartCommand.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T14:56:17.239Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Cart.cs",
+              "DocumentMoniker": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Models\\CartObjects\\Cart.cs",
+              "RelativeDocumentMoniker": "2GoFood4Less.Server\\Models\\CartObjects\\Cart.cs",
+              "ToolTip": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Models\\CartObjects\\Cart.cs",
+              "RelativeToolTip": "2GoFood4Less.Server\\Models\\CartObjects\\Cart.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAzwBQAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T14:23:21.853Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CartCalculator.cs",
+              "DocumentMoniker": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Services\\CartServices\\CartCalcualtion\\CartCalculator.cs",
+              "RelativeDocumentMoniker": "2GoFood4Less.Server\\Services\\CartServices\\CartCalcualtion\\CartCalculator.cs",
+              "ToolTip": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Services\\CartServices\\CartCalcualtion\\CartCalculator.cs",
+              "RelativeToolTip": "2GoFood4Less.Server\\Services\\CartServices\\CartCalcualtion\\CartCalculator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T14:15:04.882Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CartController.cs",
+              "DocumentMoniker": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Controllers\\CartControllerData\\CartController.cs",
+              "RelativeDocumentMoniker": "2GoFood4Less.Server\\Controllers\\CartControllerData\\CartController.cs",
+              "ToolTip": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Controllers\\CartControllerData\\CartController.cs",
+              "RelativeToolTip": "2GoFood4Less.Server\\Controllers\\CartControllerData\\CartController.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAuwBgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T14:11:52.487Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AddItemCommand.cs",
+              "DocumentMoniker": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Services\\CartServices\\CartCommands\\AddItemCommand.cs",
+              "RelativeDocumentMoniker": "2GoFood4Less.Server\\Services\\CartServices\\CartCommands\\AddItemCommand.cs",
+              "ToolTip": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Services\\CartServices\\CartCommands\\AddItemCommand.cs",
+              "RelativeToolTip": "2GoFood4Less.Server\\Services\\CartServices\\CartCommands\\AddItemCommand.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAqwCgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T14:05:46.782Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CartService.cs",
+              "DocumentMoniker": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Services\\CartServices\\CartService.cs",
+              "RelativeDocumentMoniker": "2GoFood4Less.Server\\Services\\CartServices\\CartService.cs",
+              "ToolTip": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Services\\CartServices\\CartService.cs",
+              "RelativeToolTip": "2GoFood4Less.Server\\Services\\CartServices\\CartService.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAAwC4AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T14:05:25.194Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Program.cs",
+              "RelativeDocumentMoniker": "2GoFood4Less.Server\\Program.cs",
+              "ToolTip": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Program.cs",
+              "RelativeToolTip": "2GoFood4Less.Server\\Program.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAqwCUAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T14:04:29.518Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CartItem.cs",
+              "DocumentMoniker": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Models\\CartObjects\\CartItem.cs",
+              "RelativeDocumentMoniker": "2GoFood4Less.Server\\Models\\CartObjects\\CartItem.cs",
+              "ToolTip": "C:\\Users\\todmi\\Desktop\\2GoFood4Less\\2GoFood4Less.Server\\Models\\CartObjects\\CartItem.cs",
+              "RelativeToolTip": "2GoFood4Less.Server\\Models\\CartObjects\\CartItem.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAwBsAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T14:29:16.127Z",
               "EditorCaption": ""
             }
           ]

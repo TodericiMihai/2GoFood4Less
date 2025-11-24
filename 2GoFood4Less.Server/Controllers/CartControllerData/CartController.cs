@@ -16,9 +16,9 @@ namespace _2GoFood4Less.Server.Controllers.CartControllerData
     public class CartController : ControllerBase
     {
         private readonly CartService _cartService;
-        private readonly UserManager<Client> _userManager;
-
-        public CartController(CartService cartService, UserManager<Client> userManager)
+        private readonly UserManager<AppUser> _userManager;
+ 
+        public CartController(CartService cartService, UserManager<AppUser> userManager)
         {
             _cartService = cartService;
             _userManager = userManager;

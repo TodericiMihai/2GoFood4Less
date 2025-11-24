@@ -167,7 +167,7 @@ namespace _2GoFood4Less.Server.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("timestamp");
+                        .HasColumnType("timestamptz");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -177,7 +177,7 @@ namespace _2GoFood4Less.Server.Data.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<DateTime>("LastLogin")
-                        .HasColumnType("timestamp");
+                        .HasColumnType("timestamptz");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("boolean");
@@ -186,7 +186,7 @@ namespace _2GoFood4Less.Server.Data.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<DateTime>("ModifiedDate")
-                        .HasColumnType("timestamp");
+                        .HasColumnType("timestamptz");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -751,8 +751,7 @@ namespace _2GoFood4Less.Server.Data.Migrations
 
             modelBuilder.Entity("_2GoFood4Less.Server.Models.AuthObjects.Client", b =>
                 {
-                    b.Navigation("Cart")
-                        .IsRequired();
+                    b.Navigation("Cart");
 
                     b.Navigation("Orders");
                 });

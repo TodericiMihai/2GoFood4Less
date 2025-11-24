@@ -1,9 +1,10 @@
-﻿using _2GoFood4Less.Server.Controllers.AuthControllerData.AuthDto;
+﻿using _2GoFood4Less.Server.Controllers.AuthControllerData.AuthDtoManager;
+using _2GoFood4Less.Server.Data;
+using _2GoFood4Less.Server.Infrastructure;
 using _2GoFood4Less.Server.Models.AuthObjects;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
 
 namespace _2GoFood4Less.Server.Controllers.AuthControllerData
 {
@@ -11,15 +12,15 @@ namespace _2GoFood4Less.Server.Controllers.AuthControllerData
     [ApiController]
     public class ClientAuthController : ControllerBase
     {
-        private readonly UserManager<Client> _userManager;
-        private readonly SignInManager<Client> _signInManager;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly TokenProvider _tokenProvider;
 
         public ClientAuthController(
-            UserManager<Client> userManager,
-            SignInManager<Client> signInManager)
+            UserManager<AppUser> userManager,
+            TokenProvider tokenProvider)
         {
             _userManager = userManager;
-            _signInManager = signInManager;
+            _tokenProvider = tokenProvider;
         }
 
         // REGISTER -----------------------------------------------------
@@ -39,8 +40,8 @@ namespace _2GoFood4Less.Server.Controllers.AuthControllerData
 
                 if (!result.Succeeded)
                     return BadRequest(result.Errors);
-
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 return BadRequest("Something went wrong, please try again. " + ex.Message);
             }
@@ -56,38 +57,41 @@ namespace _2GoFood4Less.Server.Controllers.AuthControllerData
             {
                 var user = await _userManager.FindByEmailAsync(login.Email);
 
-                if (user == null) return Unauthorized("Invalid credentials.");
-
-                var result = await _signInManager.PasswordSignInAsync(user, login.Password, login.Remember, false);
-
-                if (!result.Succeeded)
+                if (user is not Client client)
                     return Unauthorized("Invalid credentials.");
 
-                user.LastLogin = DateTime.Now;
+                // Verify password with UserManager
+                bool passwordValid = await _userManager.CheckPasswordAsync(client, login.Password);
+                if (!passwordValid)
+                    return Unauthorized("Invalid credentials.");
 
-                await _userManager.UpdateAsync(user);
+                // Generate JWT token
+                string token = _tokenProvider.Create(client);
 
-            }catch (Exception ex)
-            {
-                return BadRequest(new { message = "Something went wrong, please try again. " + ex.Message });
+                // Update last login
+                client.LastLogin = DateTime.UtcNow;
+                await _userManager.UpdateAsync(client);
+
+                return Ok(new
+                {
+                    message = "Login successful.",
+                    token
+                });
             }
-            return Ok(new { message = "Client login successful." });
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = "Something went wrong: " + ex.Message });
+            }
         }
+
 
         // LOGOUT -------------------------------------------------------
         [Authorize]
         [HttpGet("logout")]
-        public async Task<ActionResult> Logout()
+        public ActionResult Logout()
         {
-             try
-            {
-                await _signInManager.SignOutAsync();
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(new { message = "Someting went wrong, please try again. " + ex.Message });
-            }
-            return Ok(new { message = "Client logged out." });
+            // With JWT, logout is client-side: just discard the token
+            return Ok(new { message = "Client logout successful. Discard the token on the client." });
         }
 
         // CURRENT USER -------------------------------------------------
@@ -95,9 +99,19 @@ namespace _2GoFood4Less.Server.Controllers.AuthControllerData
         [HttpGet("me")]
         public async Task<ActionResult> GetCurrent()
         {
-            var principal = User;
-            var user = await _userManager.GetUserAsync(principal);
-            return Ok(user);
+            var user = await _userManager.GetUserAsync(User);
+
+            if (user is not Client client)
+                return Unauthorized("User is not a client.");
+
+            return Ok(new
+            {
+                client.Id,
+                client.Name,
+                client.Email,
+                client.UserName,
+                client.LastLogin
+            });
         }
     }
 }

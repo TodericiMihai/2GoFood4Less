@@ -1,64 +1,74 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import AddRestaurantModal from './AddRestaurantModal';
+import api from '../../utils/axiosConfig';
 
 function Home() {
 
     document.title = "Welcome";
     const [restaurants, setRestaurants] = useState([]);
     const [showModal, setShowModal] = useState(false);
+    const [loading, setLoading] = useState(true);
 
-    const fetchRestaurants = () => {
+    const fetchRestaurants = async () => {
+        setLoading(true);
         const userId = localStorage.getItem("userId");
-        fetch("api/restaurant/manager/" + userId, {
-            method: "GET",
-            credentials: "include"
-        }).then(response => response.json()).then(data => {
-            setRestaurants(data);
-            console.log("restaurants: ", data);
-        }).catch(error => {
+        try {
+            const response = await api.get("restaurant/manager/" + userId);
+            setRestaurants(response.data);
+            console.log("restaurants: ", response.data);
+        } catch (error) {
             console.log("Error home page: ", error);
-        });
+        } finally {
+            setLoading(false);
+        }
     };
 
     useEffect(() => {
         console.log("Home component loaded. Links should be active.");
         fetchRestaurants();
     }, []);
+
     return (
         <section className='page'>
-            <header>
-                <h1>Welcome to your page</h1>
-                <button className="btn" onClick={() => setShowModal(true)}>Add Restaurant</button>
+            <header className="flex-between" style={{ marginBottom: '2rem' }}>
+                <div>
+                    <h1>My Restaurants</h1>
+                    <p style={{ color: 'var(--text-secondary)' }}>Manage your restaurant locations and menus</p>
+                </div>
+                <button className="btn" onClick={() => setShowModal(true)}>
+                    + Add Restaurant
+                </button>
             </header>
-            {
-                restaurants && restaurants.length > 0 ?
-                    <div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {restaurants.map(restaurant => (
-                                    <tr key={restaurant.id}>
-                                        <td>
-                                            <Link to={`/restaurant/${restaurant.id}`} style={{ color: 'blue', textDecoration: 'underline', fontWeight: 'bold', cursor: 'pointer' }}>
-                                                {restaurant.name}
-                                            </Link>
-                                        </td>
-                                        <td>{restaurant.description}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div> :
-                    <div className='warning'>
-                        <div>No restaurants found. Add one!</div>
-                    </div>
-            }
+
+            {loading ? (
+                <div className="flex-center" style={{ height: '200px' }}>
+                    <p>Loading restaurants...</p>
+                </div>
+            ) : restaurants && restaurants.length > 0 ? (
+                <div className="grid-responsive">
+                    {restaurants.map(restaurant => (
+                        <div key={restaurant.id} className="card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                            <div>
+                                <h3 style={{ marginBottom: '0.5rem' }}>{restaurant.name}</h3>
+                                <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                                    {restaurant.description}
+                                </p>
+                            </div>
+                            <Link to={`/restaurant/${restaurant.id}`} className="btn secondary" style={{ textAlign: 'center' }}>
+                                Manage Restaurant
+                            </Link>
+                        </div>
+                    ))}
+                </div>
+            ) : (
+                <div className='card flex-center' style={{ flexDirection: 'column', padding: '4rem 2rem', textAlign: 'center' }}>
+                    <h3 style={{ marginBottom: '1rem' }}>No Restaurants Found</h3>
+                    <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem' }}>Get started by adding your first restaurant.</p>
+                    <button className="btn" onClick={() => setShowModal(true)}>Add Restaurant</button>
+                </div>
+            )}
+
             {showModal && (
                 <AddRestaurantModal
                     onClose={() => setShowModal(false)}
