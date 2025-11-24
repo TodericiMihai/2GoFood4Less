@@ -3,6 +3,7 @@ import ProtectedRoutes from './ProtectedRoutes';
 import './App.css'
 import Home from './Components/Dashboard/Home'
 import RestaurantDetails from './Components/Dashboard/RestaurantDetails'
+import RestaurantOrders from './Components/Dashboard/RestaurantOrders'
 import MenuDetails from './Components/Dashboard/MenuDetails'
 import Login from './Components/Auth/Login'
 import Register from './Components/Auth/Register'
@@ -15,6 +16,7 @@ const router = createBrowserRouter(
             <Route element={<ProtectedRoutes />}>
                 <Route path='/' element={<Home />} />
                 <Route path='/restaurant/:id' element={<RestaurantDetails />} />
+                <Route path='/restaurant/:id/orders' element={<RestaurantOrders />} />
                 <Route path='/menu/:id' element={<MenuDetails />} />
             </Route>
             <Route path='/login' element={<Login />} />

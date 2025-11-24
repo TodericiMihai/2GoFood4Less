@@ -67,16 +67,68 @@ namespace _2GoFood4Less.Server.Services.OrderService
             }
         }
 
-        public async Task<IEnumerable<Order>> GetOrdersByClientAsync(string clientId)
+        //public async Task<IEnumerable<Order>> GetOrdersByClientAsync(string clientId)
+        //{
+        //    try
+        //    {
+        //        return await _db.Orders
+        //            .Include(o => o.OrderItems)
+        //                .ThenInclude(oi => oi.MenuItem)
+        //            .Include(o => o.Restaurant)
+        //            .Where(o => o.ClientId == clientId)
+        //            .ToListAsync();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.Error.WriteLine($"Error fetching client orders: {ex.Message}");
+        //        throw;
+        //    }
+        //}
+
+        //public async Task<IEnumerable<Order>> GetOrdersByRestaurantAsync(string restaurantId)
+        //{
+        //    try
+        //    {
+        //        return await _db.Orders
+        //            .Include(o => o.OrderItems)
+        //                .ThenInclude(oi => oi.MenuItem)
+        //            .Include(o => o.Client)
+        //            .Where(o => o.RestaurantId == restaurantId)
+        //            .ToListAsync();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.Error.WriteLine($"Error fetching restaurant orders: {ex.Message}");
+        //        throw;
+        //    }
+        //}
+
+        public async Task<IEnumerable<OrderDto>> GetOrdersByClientAsync(string clientId)
         {
             try
             {
-                return await _db.Orders
+                var orders = await _db.Orders
                     .Include(o => o.OrderItems)
                         .ThenInclude(oi => oi.MenuItem)
                     .Include(o => o.Restaurant)
                     .Where(o => o.ClientId == clientId)
                     .ToListAsync();
+
+                // Map to DTOs
+                return orders.Select(order => new OrderDto
+                {
+                    Id = order.Id,
+                    ClientId = order.ClientId,
+                    RestaurantId = order.Restaurant.Id,
+                    RestaurantName = order.Restaurant.Name,
+                    Status = order.Status,
+                    OrderItems = order.OrderItems.Select(oi => new OrderItemDto
+                    {
+                        Id = oi.MenuItem.Id,
+                        Name = oi.MenuItem.Name,
+                        Quantity = oi.Quantity
+                    }).ToList()
+                });
             }
             catch (Exception ex)
             {
@@ -85,16 +137,33 @@ namespace _2GoFood4Less.Server.Services.OrderService
             }
         }
 
-        public async Task<IEnumerable<Order>> GetOrdersByRestaurantAsync(string restaurantId)
+        public async Task<IEnumerable<OrderDto>> GetOrdersByRestaurantAsync(string restaurantId)
         {
             try
             {
-                return await _db.Orders
-                    .Include(o => o.OrderItems)
-                        .ThenInclude(oi => oi.MenuItem)
-                    .Include(o => o.Client)
-                    .Where(o => o.RestaurantId == restaurantId)
-                    .ToListAsync();
+                    var orders = await _db.Orders
+                        .Include(o => o.OrderItems)
+                            .ThenInclude(oi => oi.MenuItem)
+                        .Include(o => o.Client)
+                        .Include(o => o.Restaurant) // <--- include this
+                        .Where(o => o.RestaurantId == restaurantId)
+                        .ToListAsync();
+
+                // Map to DTOs
+                return orders.Select(order => new OrderDto
+                {
+                    Id = order.Id,
+                    ClientId = order.ClientId,
+                    RestaurantId = order.RestaurantId,
+                    RestaurantName = order.Restaurant.Name,
+                    Status = order.Status,
+                    OrderItems = order.OrderItems.Select(oi => new OrderItemDto
+                    {
+                        Id = oi.MenuItem.Id,
+                        Name = oi.MenuItem.Name,
+                        Quantity = oi.Quantity
+                    }).ToList()
+                });
             }
             catch (Exception ex)
             {
@@ -102,5 +171,6 @@ namespace _2GoFood4Less.Server.Services.OrderService
                 throw;
             }
         }
+
     }
 }

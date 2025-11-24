@@ -46,7 +46,7 @@ namespace _2GoFood4Less.Server.Controllers.CartControllerData
         {
             try
             {
-                var command = new AddItemCommand(request.MenuItemId, request.Quantity, new CartCalculator());
+                var command = new AddItemCommand(request.MenuItemId, request.Quantity);
                 var cart = await _cartService.ExecuteCommandAsync(request.ClientId, command);
                 return Ok(cart);
             }
@@ -62,7 +62,7 @@ namespace _2GoFood4Less.Server.Controllers.CartControllerData
         {
             try
             {
-                var command = new RemoveItemCommand(request.MenuItemId, new CartCalculator());
+                var command = new RemoveItemCommand(request.MenuItemId);
                 var cart = await _cartService.ExecuteCommandAsync(request.ClientId, command);
                 return Ok(cart);
             }
@@ -78,7 +78,7 @@ namespace _2GoFood4Less.Server.Controllers.CartControllerData
         {
             try
             {
-                var command = new UpdateQuantityCommand(request.MenuItemId, request.NewQuantity, new CartCalculator());
+                var command = new UpdateQuantityCommand(request.MenuItemId, request.NewQuantity);
                 var cart = await _cartService.ExecuteCommandAsync(request.ClientId, command);
                 return Ok(cart);
             }

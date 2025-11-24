@@ -44,6 +44,9 @@ function RestaurantDetails() {
                         <p style={{ color: 'var(--text-secondary)' }}>{restaurant.foodType}</p>
                     </div>
                 </div>
+                <Link to={`/restaurant/${id}/orders`} className="btn">
+                    View Orders
+                </Link>
             </header>
 
             <div className="card" style={{ marginBottom: '2rem' }}>

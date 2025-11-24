@@ -15,9 +15,9 @@ namespace _2GoFood4Less.Server.Controllers.OrderControllerData
     public class OrderController : ControllerBase
     {
         private readonly OrderService _orderService;
-        private readonly UserManager<Client> _userManager;
+        private readonly UserManager<AppUser> _userManager;
 
-        public OrderController(OrderService orderService, UserManager<Client> userManager)
+        public OrderController(OrderService orderService, UserManager<AppUser> userManager)
         {
             _orderService = orderService;
             _userManager = userManager;

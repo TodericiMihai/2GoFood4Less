@@ -9,7 +9,8 @@ namespace _2GoFood4Less.Server.Services.OrderService
         Task<Order> ExecuteCommandAsync(string orderId, IOrderCommand command);
         Task<Order> GetByIdAsync(string orderId);
 
-        Task<IEnumerable<Order>> GetOrdersByClientAsync(string clientId);
-        Task<IEnumerable<Order>> GetOrdersByRestaurantAsync(string restaurantId);
+        //Task<IEnumerable<Order>> GetOrdersByClientAsync(string clientId);
+        //Task<IEnumerable<Order>> GetOrdersByRestaurantAsync(string restaurantId);
+
     }
 }

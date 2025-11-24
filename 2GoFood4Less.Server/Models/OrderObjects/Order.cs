@@ -2,6 +2,7 @@
 using _2GoFood4Less.Server.Models.RestaurantObjects;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace _2GoFood4Less.Server.Models.OrderObjects
 {
@@ -16,11 +17,13 @@ namespace _2GoFood4Less.Server.Models.OrderObjects
         public string RestaurantId { get; set; }
 
         [ForeignKey("RestaurantId")]
+        [JsonIgnore]
         public Restaurant Restaurant { get; set; }
 
         public string ClientId { get; set; }
 
         [ForeignKey("ClientId")]
+        [JsonIgnore]
         public Client Client { get; set; }
 
         public Payment Payment { get; set; }

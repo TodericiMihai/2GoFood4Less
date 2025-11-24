@@ -4,6 +4,7 @@ using _2GoFood4Less.Server.Models.AuthObjects;
 using _2GoFood4Less.Server.Services.CartServices;
 using _2GoFood4Less.Server.Services.CartServices.CartCalcualtion;
 using _2GoFood4Less.Server.Services.MenuServices;
+using _2GoFood4Less.Server.Services.OrderService;
 using _2GoFood4Less.Server.Services.RestaurantServices;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -35,6 +36,7 @@ builder.Services.AddScoped<MenuService>();
 builder.Services.AddScoped<MenuItemService>();
 builder.Services.AddSingleton<TokenProvider>();
 builder.Services.AddScoped<CartService>();
+builder.Services.AddScoped<OrderService>();
 builder.Services.AddScoped<ICartCalculator, CartCalculator>();
 
 // ----------------------

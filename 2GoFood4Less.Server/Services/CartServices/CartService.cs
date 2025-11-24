@@ -64,6 +64,7 @@ namespace _2GoFood4Less.Server.Services.CartServices
                 var cart = await _db.Carts
                     .Include(c => c.CartItems)
                     .ThenInclude(ci => ci.MenuItem)
+                    .ThenInclude(mi => mi.Menu)
                     .FirstOrDefaultAsync(c => c.ClientId == clientId);
 
                 if (cart == null)
